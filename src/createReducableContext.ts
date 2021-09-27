@@ -25,5 +25,7 @@ export default function createReducableContext<T, I>(initialState: T) {
     return dispatch;
   };
 
-  return { context, useDispatch };
+  const useSelector = () => (selector: (state: IContext) => void) => useContextSelector(context, selector);
+
+  return { context, useDispatch, useSelector };
 }
