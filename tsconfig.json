@@ -8,6 +8,7 @@
     ],
     "outDir": "./build",
     "rootDir": "./src",
+    "jsx": "react",
     "strict": true,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
