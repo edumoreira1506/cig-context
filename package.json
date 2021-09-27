@@ -1,11 +1,11 @@
 {
 	"name": "@cig-platform/context",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "",
 	"main": "build/index.js",
 	"types": "build/index.d.ts",
 	"scripts": {
-		"build": "babel src --extensions \".ts\" --out-dir build --copy-files --no-copy-ignored && tsc --declaration --emitDeclarationOnly",
+		"build": "babel src --extensions \".ts .tsx\" --out-dir build --copy-files --no-copy-ignored && tsc --declaration --emitDeclarationOnly",
 		"prepare": "npm run build",
 		"version": "git add -A src",
 		"postversion": "git push && git push --tags",
