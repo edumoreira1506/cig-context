@@ -14,7 +14,7 @@ export interface DefaultState {
   error?: null | ApiErrorType;
 }
 
-export default function createReducableContext<T, I>(initialState: T, reducer: React.ReducerWithoutAction<any>) {
+export default function createReducableContext<T, I>(initialState: T, reducer: (state: T, action: I) => T) {
   type IContext = DefaultState & T & {
     dispatch: Dispatch<I>;
   }
@@ -29,7 +29,7 @@ export default function createReducableContext<T, I>(initialState: T, reducer: R
 
   const useSelector = <Selected>(selector: (state: IContext) => Selected) => useContextSelector(context, selector);
 
-  const provider = createProvider<T, IContext>(context, initialState, reducer);
+  const provider = createProvider<T, I, IContext>(context, initialState, reducer);
 
   return { context, useDispatch, useSelector, provider };
 }
